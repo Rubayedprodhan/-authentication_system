@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+{% if messages %}
+    {% for m in messages %}
+    <p class="bg-success p-3 text-white">{{m}}</p>
+    {% endfor %}
+    {% endif %}
+    <br/>
+<form style="width: 50%; margin: auto" method="post">
+    <h1>Update Your Profile</h1>
+  <a class="btn btn-warning btn-sm" href="{% url 'profile_edit_password_change' %}"
+    >Change Your Password</a
+  >
+  {% csrf_token %} {{form | crispy}}
+
+  <button class="btn btn-warning mb-5">Submit</button>
+</form>
+
+{% endblock %}
